@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from PIL import Image
 import yfinance as yf
 import datetime
