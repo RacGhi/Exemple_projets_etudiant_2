@@ -69,9 +69,9 @@ b3.metric("Taux US 10 ans", f"{us10y_DATA.Close[-1] :.3f}", f"{diff_us10y:.2} ({
 
 volatilité = yf.Ticker('^VIX') # Get ticker data
 volatilité_DATA = volatilité.history(period='1d', start=start_date, end=end_date)
-diff_volatilité = volatilité_DATA.Close[-1] - volatilité_DATA.Close[-2]
-r_volatilité = diff_volatilité/volatilité_DATA.Close[-2]
-b4.metric("Volatilité", f"{volatilité_DATA.Close[-1] :.2f}", f"{diff_volatilité:.2} ({100*r_volatilité :.2f}%)")
+diff_volatilité = volatilité.info['regularMarketPrice'] - volatilité_DATA.Close[-1]
+r_volatilité = diff_volatilité/volatilité_DATA.Close[-1]
+b4.metric("Volatilité", f"{volatilité.info['regularMarketPrice'] :.2f}", f"{diff_volatilité:.2} ({100*r_volatilité :.2f}%)")
 
 
 
