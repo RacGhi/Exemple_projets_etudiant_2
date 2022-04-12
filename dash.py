@@ -28,7 +28,7 @@ SP500 = yf.Ticker('^GSPC') # Get ticker data
 SP500_DATA = SP500.history(period='1d', interval = "1m")
 SP500_DATA2 = SP500.history(period='5d')
 r_sp500 = (SP500_DATA.Close[-1] - SP500_DATA2.Close[-1])/SP500_DATA2.Close[-1]
-a2.metric("S&P 500", f"{SP500_DATA.Close[-1] :,.0f}", f"{100*r_sp500:.2f} %")
+a2.metric("S&P 500", f"{SP500_DATA.Close[0] :,.0f}", f"{100*r_sp500:.2f} %")
 
 
 
