@@ -138,3 +138,11 @@ string_logo = '<img src=%s>' % tickerData.info['logo_url']
 st.markdown(string_logo, unsafe_allow_html=True)
 tickerData.info["longBusinessSummary"]  
 
+st.write("_______")
+
+st.write("### Détenteurs institutionnels majeurs :")
+
+tickerData.institutional_holders
+
+
+st.write("_______")
