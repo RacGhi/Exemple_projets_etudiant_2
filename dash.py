@@ -26,34 +26,33 @@ a1.image(Image.open('Tableau de bord.png'))
 
 SP500 = yf.Ticker('^GSPC') # Get ticker data
 SP500_DATA = SP500.history(period='1d', start=start_date, end=end_date)
-SP500_DATA2 = SP500.history(period='5d')
+
 r_sp500 = (SP500.info['regularMarketPrice'] - SP500_DATA.Close[-1])/SP500_DATA.Close[-1]
 a2.metric("S&P 500", f"{SP500.info['regularMarketPrice']:,.0f}", f"{100*r_sp500:.2f} %")
 
 #SP500_DATA.Close[-1]
 
-SP500_DATA 
-SP500_DATA2 
+#SP500_DATA2 = SP500.history(period='5d')
+#SP500_DATA 
+#SP500_DATA2 
 
 nasdaq = yf.Ticker('^IXIC') # Get ticker data
-nasdaq_DATA = nasdaq.history(period='5d', interval = "1m")
-nasdaq_DATA2 = nasdaq.history(period='1d', start=start_date, end=end_date)
-r_nasdaq = (nasdaq_DATA2.Close[-1] - nasdaq_DATA2.Close[-2])/nasdaq_DATA2.Close[-2]
-a3.metric("NASDAQ Composite", f"{nasdaq_DATA.Close[-1] :,.0f}", f"{100*r_nasdaq:.2f} %")
+nasdaq_DATA1 = nasdaq.history(period='1d', start=start_date, end=end_date)
+r_nasdaq = (.info['regularMarketPrice'] - nasdaq_DATA2.Close[-1])/nasdaq_DATA2.Close[-1]
+a3.metric("NASDAQ Composite", f"{nasdaq.info['regularMarketPrice'] :,.0f}", f"{100*r_nasdaq:.2f} %")
 
 SP_TSX = yf.Ticker('^GSPTSE') # Get ticker data
-SP_TSX_DATA = SP_TSX.history(period='5d', interval = "1m")
-SP_TSX_DATA2 = SP_TSX.history(period='1d', start=start_date, end=end_date)
-r_sp_tsx = (SP_TSX_DATA2.Close[-1] - SP_TSX_DATA2.Close[-2])/SP_TSX_DATA2.Close[-2]
-a4.metric("S&P/TSX", f"{SP_TSX_DATA.Close[-1] :,.0f}", f"{100*r_sp_tsx:.2f} %")
+SP_TSX_DATA1 = SP_TSX.history(period='1d', start=start_date, end=end_date)
+r_sp_tsx = (SP_TSX.info['regularMarketPrice'] - SP_TSX_DATA2.Close[-1])/SP_TSX_DATA2.Close[-1]
+a4.metric("S&P/TSX", f"{SP_TSX.info['regularMarketPrice']:,.0f}", f"{100*r_sp_tsx:.2f} %")
 
 # Row B
 b1, b2, b3, b4 = st.columns(4)
 
 cad_usd = yf.Ticker('CADUSD=X') # Get ticker data
 cad_usd_DATA = cad_usd.history(period='1d', start=start_date, end=end_date)
-r_cad_usd = (cad_usd_DATA.Close[-1] - cad_usd_DATA.Close[-2])/cad_usd_DATA.Close[-2]
-b1.metric("CAD/USD", f"{cad_usd_DATA.Close[-1] :.3f}", f"{100*r_cad_usd :.2f} %")
+r_cad_usd = (cad_usd.info['regularMarketPrice']- cad_usd_DATA.Close[-1])/cad_usd_DATA.Close[-1]
+b1.metric("CAD/USD", f"{cad_usd.info['regularMarketPrice'] :.3f}", f"{100*r_cad_usd :.2f} %")
 
 wti = yf.Ticker('CL=F') # Get ticker data
 wti_DATA = wti.history(period='5d', interval = "1m")
