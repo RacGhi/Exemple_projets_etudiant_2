@@ -38,7 +38,7 @@ a2.metric("S&P 500", f"{SP500.info['regularMarketPrice']:,.0f}", f"{100*r_sp500:
 
 nasdaq = yf.Ticker('^IXIC') # Get ticker data
 nasdaq_DATA1 = nasdaq.history(period='1d', start=start_date, end=end_date)
-r_nasdaq = (.info['regularMarketPrice'] - nasdaq_DATA2.Close[-1])/nasdaq_DATA2.Close[-1]
+r_nasdaq = (nasdaq.info['regularMarketPrice'] - nasdaq_DATA2.Close[-1])/nasdaq_DATA2.Close[-1]
 a3.metric("NASDAQ Composite", f"{nasdaq.info['regularMarketPrice'] :,.0f}", f"{100*r_nasdaq:.2f} %")
 
 SP_TSX = yf.Ticker('^GSPTSE') # Get ticker data
