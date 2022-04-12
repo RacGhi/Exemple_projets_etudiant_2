@@ -63,9 +63,9 @@ b2.metric("Pétrole", f"{wti_DATA.Close[-1] :.2f}", f"{diff_wti:.2} ({100*r_wti 
 
 us10y = yf.Ticker('^TNX') # Get ticker data
 us10y_DATA = us10y.history(period='1d', start=start_date, end=end_date)
-diff_us10y = us10y_DATA.Close[-1] - us10y_DATA.Close[-2]
-r_us10y = diff_us10y/us10y_DATA.Close[-2]
-b3.metric("Taux US 10 ans", f"{us10y_DATA.Close[-1] :.3f}", f"{diff_us10y:.2} ({100*r_us10y :.2f}%)")
+diff_us10y = us10y.info['regularMarketPrice'] - us10y_DATA.Close[-1]
+r_us10y = diff_us10y/us10y_DATA.Close[-1]
+b3.metric("Taux US 10 ans", f"{us10y.info['regularMarketPrice'] :.3f}", f"{diff_us10y:.2} ({100*r_us10y :.2f}%)")
 
 volatilité = yf.Ticker('^VIX') # Get ticker data
 volatilité_DATA = volatilité.history(period='1d', start=start_date, end=end_date)
