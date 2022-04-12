@@ -27,11 +27,13 @@ a1.image(Image.open('Tableau de bord.png'))
 SP500 = yf.Ticker('^GSPC') # Get ticker data
 SP500_DATA = SP500.history(period='1d', start=start_date, end=end_date)
 SP500_DATA2 = SP500.history(period='5d')
-r_sp500 = (SP500.info['regularMarketPrice'] - SP500_DATA.Close[-2])/SP500_DATA.Close[-2]
+r_sp500 = (SP500.info['regularMarketPrice'] - SP500_DATA.Close[-1])/SP500_DATA.Close[-1]
 a2.metric("S&P 500", f"{SP500.info['regularMarketPrice']:,.0f}", f"{100*r_sp500:.2f} %")
 
 #SP500_DATA.Close[-1]
 
+SP500_DATA 
+SP500_DATA2 
 
 nasdaq = yf.Ticker('^IXIC') # Get ticker data
 nasdaq_DATA = nasdaq.history(period='5d', interval = "1m")
