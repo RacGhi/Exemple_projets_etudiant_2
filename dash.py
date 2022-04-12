@@ -42,8 +42,8 @@ r_nasdaq = (nasdaq.info['regularMarketPrice'] - nasdaq_DATA.Close[-1])/nasdaq_DA
 a3.metric("NASDAQ Composite", f"{nasdaq.info['regularMarketPrice'] :,.0f}", f"{100*r_nasdaq:.2f} %")
 
 SP_TSX = yf.Ticker('^GSPTSE') # Get ticker data
-SP_TSX_DATA1 = SP_TSX.history(period='1d', start=start_date, end=end_date)
-r_sp_tsx = (SP_TSX.info['regularMarketPrice'] - SP_TSX_DATA2.Close[-1])/SP_TSX_DATA2.Close[-1]
+SP_TSX_DATA = SP_TSX.history(period='1d', start=start_date, end=end_date)
+r_sp_tsx = (SP_TSX.info['regularMarketPrice'] - SP_TSX_DATA.Close[-1])/SP_TSX_DATA.Close[-1]
 a4.metric("S&P/TSX", f"{SP_TSX.info['regularMarketPrice']:,.0f}", f"{100*r_sp_tsx:.2f} %")
 
 # Row B
