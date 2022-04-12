@@ -55,7 +55,6 @@ r_cad_usd = (cad_usd.info['regularMarketPrice']- cad_usd_DATA.Close[-2])/cad_usd
 b1.metric("CAD/USD", f"{cad_usd.info['regularMarketPrice'] :.3f}", f"{100*r_cad_usd :.2f} %")
 
 
-cad_usd_DATA
 
 wti = yf.Ticker('CL=F') # Get ticker data
 wti_DATA = wti.history(period='5d', interval = "1m")
