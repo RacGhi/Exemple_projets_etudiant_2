@@ -52,9 +52,10 @@ r_cad_usd = (cad_usd_DATA.Close[-1] - cad_usd_DATA.Close[-2])/cad_usd_DATA.Close
 b1.metric("CAD/USD", f"{cad_usd_DATA.Close[-1] :.3f}", f"{100*r_cad_usd :.2f} %")
 
 wti = yf.Ticker('CL=F') # Get ticker data
-wti_DATA = wti.history(period='1d', start=start_date, end=end_date)
-diff_wti = wti_DATA.Close[-1] - wti_DATA.Close[-2]
-r_wti = diff_wti/wti_DATA.Close[-2]
+wti_DATA = wti.history(period='5d', interval = "1m")
+wti_DATA2 = wti.history(period='5d', start=start_date, end=end_date)
+diff_wti = wti_DATA2.Close[-1] - wti_DATA2.Close[-2]
+r_wti = diff_wti/wti_DATA2.Close[-2]
 b2.metric("Pétrole", f"{wti_DATA.Close[-1] :.2f}", f"{diff_wti:.2} ({100*r_wti :.2f}%)")
 
 us10y = yf.Ticker('^TNX') # Get ticker data
