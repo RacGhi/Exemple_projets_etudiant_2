@@ -1,5 +1,5 @@
 streamlit
 PIL
 yfinance
-matplotlib.pyplot as plt
+matplotlib
 st_btn_select 
