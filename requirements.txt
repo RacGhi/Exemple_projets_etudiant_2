@@ -1,5 +1,5 @@
 streamlit
-PIL
+Pillow
 yfinance
 matplotlib
 st_btn_select 
